@@ -8,6 +8,7 @@ RUN pip install psycopg2-binary
 COPY airflow.cfg /opt/airflow/airflow.cfg
 
 #Copy pem files of ec2 servers 
+#Servers on which the DAGs trigger airflow jobs
 COPY linux.pem /opt/airflow/linux.pem
 COPY Oregon.pem /opt/airflow/Oregon.pem
 
@@ -33,7 +34,7 @@ RUN mkdir -p /root/.ssh && ssh-keyscan ssh.dev.azure.com >> /root/.ssh/known_hos
 # Set permissions for SSH directory and known_hosts
 RUN chmod 700 /root/.ssh && chmod 644 /root/.ssh/known_hosts
 
-#Execute only if we want to force refresh dags from git 
+#Execute only if we want to force refresh dags from git "GIT repo name: dag-composer"
 RUN rm -rf /opt/airflow/dags/* && git clone git@ssh.dev.azure.com:v3/intappdevops/DEA/dag-composer /opt/airflow/dags
 
 # Set ownership to airflow user for DAGs and SSH keys
