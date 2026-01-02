@@ -128,28 +128,28 @@
   - Refer script to syncup DAGs from GIT environment to Container prod_git_sync.py in repo 
  
 **Steps to Setup Airflow on ECS**
-1.	Setup Docker on your machine 
-2.	Create the below prereq files:
-a.	airflow.cfg with customized configuration
-b.	entrypoint.sh used to initiate Airflow on the container
-c.	Public and private SSH keys for GIT authentication with Azure repo.
-3.	Create Airflow folder on your local machine and navigate to it from your terminal
-4.	Create DockerFile as defined in DockerFile section 
-5.	Build the docker image from the DockerFile using ‘docker build’ command
-6.	Run the docker image locally using ‘docker run’ to do the following.
-    a.	Validate the service is installed successfully 
-    b.	Set up admin login to connect to Airflow
-      i.	docker exec -it airflow /bin/bash
-      ii.	airflow users create --username admin --firstname xxxx --lastname xxxx --role Admin --email xxxx@xxxx.com --password xxxx
-      iii.	exit
-    c.	Test the service by connecting to Airflow UI using ‘localhost:8080’ 
-7.	Stop the service on local
-8.	Create necessary AWS services to run Airflow on ECS
-a.	Create the Elastic Container Registry on AWS where the docker images can be stored and provide necessary authentication for the users to push the docker images from local repository to ECR
-b.	Create Elastic Container Service where the docker images run based on the configs defined
-c.	[optiopnal] Set up Application Load blancer on AWS with Target Groups to have a permanent url – (Ex: https://de-airflow.company.net/ )
-9.	Install AWS CLI and configure it with AWS keys 
-10.	Push the docker image to ECR using the commands defined in AWS ECR (ECR → Select Repository → View push commands) .
-11.	Navigate to ECS and create a Task Definition by specifying the URI of the image and the capacity needed.
-12.	Navigate to ECS cluster and create service and provide the task definition and define the configuration to execute Fargate ECS service.
+ - Setup Docker on your machine 
+ - Create the below prereq files:
+    - airflow.cfg with customized configuration
+    - entrypoint.sh used to initiate Airflow on the container
+    - Public and private SSH keys for GIT authentication with Azure repo.
+ - Create Airflow folder on your local machine and navigate to it from your terminal
+ - Create DockerFile as defined in DockerFile section 
+ - Build the docker image from the DockerFile using ‘docker build’ command
+ - Run the docker image locally using ‘docker run’ to do the following.
+    - Validate the service is installed successfully 
+    - Set up admin login to connect to Airflow
+       - docker exec -it airflow /bin/bash
+       - airflow users create --username admin --firstname xxxx --lastname xxxx --role Admin --email xxxx@xxxx.com --password xxxx
+       - exit
+    - Test the service by connecting to Airflow UI using ‘localhost:8080’ 
+ - Stop the service on local
+- Create necessary AWS services to run Airflow on ECS
+    - Create the Elastic Container Registry on AWS where the docker images can be stored and provide necessary authentication for the users to push the docker images from local repository to ECR
+    - Create Elastic Container Service where the docker images run based on the configs defined
+    - [optiopnal] Set up Application Load blancer on AWS with Target Groups to have a permanent url – (Ex: https://de-airflow.company.net/ )
+ - Install AWS CLI and configure it with AWS keys 
+ - Push the docker image to ECR using the commands defined in AWS ECR (ECR → Select Repository → View push commands) .
+ - Navigate to ECS and create a Task Definition by specifying the URI of the image and the capacity needed.
+ - Navigate to ECS cluster and create service and provide the task definition and define the configuration to execute Fargate ECS service.
 
