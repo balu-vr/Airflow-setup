@@ -71,7 +71,7 @@
     EXPOSE 8080
      
 **Entrypoint File**: A shell script called Entrypoint.sh file will be executed on the container to initiate the Airflow service.
-    - Refer to Entrypoint.sh file in the repo
+    - Refer to entrypoint.sh file in the AirflowECS folder in the repo
  
 **Airflow configuration**
   - The configurations are defined in the airflow.cfg that contains following sections:
@@ -124,7 +124,7 @@
   -	This will keep track of new changes added to GIT repository and pull them into Airflow automatically.
 
 **Sync DAGs from Repo to container**:
-  - Refer script to syncup DAGs from GIT environment to Container git_sync.pyin repo 
+  - Refer script to syncup DAGs from GIT environment to Container prod_git_sync.py in repo 
  
 **Steps to Setup Airflow on ECS**
 1.	Setup Docker on your machine 
