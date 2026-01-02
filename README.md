@@ -152,4 +152,3 @@ c.	[optiopnal] Set up Application Load blancer on AWS with Target Groups to have
 11.	Navigate to ECS and create a Task Definition by specifying the URI of the image and the capacity needed.
 12.	Navigate to ECS cluster and create service and provide the task definition and define the configuration to execute Fargate ECS service.
 
-  <img width="300" height="500" alt="image" src="https://github.com/user-attachments/assets/3b1afabe-ad8e-416e-92ee-7fcd06cb81e6" />
