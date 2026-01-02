@@ -80,7 +80,7 @@
     - Email and Webserver: email server and webserver server details with IP and port information
     - Refer to the file airflow.cfg file in the repo
  
-**Elastic Container Service **
+**Elastic Container Service**
  - The AWS ECS setup is needed to run the docker image as a ‘Service’ on ECS cluster.
 **Components** 
     - Create an ECS Cluster ‘DataEngineering_Airflow’
