@@ -21,11 +21,12 @@
     - A DAG to sync the Airflow DAGs from GIT to container location
 
 **Dockerfile:**
-    # Use the official airflow image
-    FROM apache/airflow:2.9.2-python3.9
     
     # Install psycopg2
     RUN pip install psycopg2-binary
+
+    # Use the official airflow image
+    FROM apache/airflow:2.9.2-python3.9
     
     #Copy airflow config file to container 
     COPY airflow.cfg /opt/airflow/airflow.cfg
