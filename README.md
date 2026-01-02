@@ -112,7 +112,7 @@
   <img width="800" height="400" alt="image" src="https://github.com/user-attachments/assets/ce19c869-b445-498b-95c4-15ba369e51a9" />
 
    
-**GIT Integration for CI/CD **:
+**GIT Integration for CI/CD**:
 - The Airflow setup will be tightly integrated with Azure GIT repository ‘ex: dag-composer’ to sync all the DAGS.
   - Generate keys on the local machine: ssh-keygen -t rsa 
   -	Navigate to Azure GIT → User Settings → SSH Public keys → New Key → Copy paste the public key generated from the above step
